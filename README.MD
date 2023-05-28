@@ -33,15 +33,11 @@ Root Password: Vojtakropi21
 You can connect to the database using your preferred MySQL client, such as MySQL Workbench or the MySQL command-line tool.
 
 ## komponenty
-This project is simple Lorem ipsum dolor generator.
+<img src="diagram_komponent.png" title="Diagram komponent">
 	
 ## use-case diagram
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+<img src="use-case-diagram.png" title="Use case diagram">
 	
 
-<img src="diagram_komponent.png" title="Diagram komponent">
 
-<img src="use-case-diagram.png" title="Use case diagram">
+
