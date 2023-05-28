@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./flask_api
+    ports:
+      - "5000:5000"
+    networks:
+      - my_network
+
+  new_app:
+    build: ./flask_worker
+    ports:
+      - "3000:3000"
+    networks:
+      - my_network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_DATABASE=names
+      - MYSQL_ROOT_PASSWORD=Vojtakropi21
+    ports:
+      - '3306:3306'
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - my_network
+
+  mkdocs:
+    container_name: mkdocs
+    image: squidfunk/mkdocs-material
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docs:/docs"
+    networks:
+      - my_network
+
+networks:
+  my_network:
